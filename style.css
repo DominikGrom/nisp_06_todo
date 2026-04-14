@@ -54,3 +54,31 @@ li {
   margin-top: 30px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
+
+body.dark {
+  background-color: #121212;
+  color: white;
+}
+
+body.dark .card {
+  background-color: #1e1e1e;
+  color: white;
+}
+
+body.dark li {
+  background-color: #2a2a2a;
+  color: white;
+  border-color: #444;
+}
+
+body.dark input {
+  background-color: #333;
+  color: white;
+  border: 1px solid #555;
+}
+
+body.dark button {
+  background-color: #333;
+  color: white;
+  border: 1px solid #555;
+}
