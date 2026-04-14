@@ -2,10 +2,10 @@ const input = document.getElementById("task-input");
 const button = document.getElementById("add-btn");
 const list = document.getElementById("task-list");
 
-// 📦 wczytaj zapisane zadania
+// wczytaj zapisane zadania
 let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
 
-// 🧱 funkcja do renderowania
+// funkcja do renderowania
 function renderTasks() {
   list.innerHTML = "";
 
@@ -46,12 +46,12 @@ function renderTasks() {
   });
 }
 
-// 💾 zapis do localStorage
+// zapis do localStorage
 function saveTasks() {
   localStorage.setItem("tasks", JSON.stringify(tasks));
 }
 
-// ➕ dodawanie zadania
+// dodawanie zadania
 button.addEventListener("click", () => {
   const text = input.value;
 
@@ -68,5 +68,5 @@ button.addEventListener("click", () => {
   input.value = "";
 });
 
-// 🚀 start
+// start
 renderTasks();
