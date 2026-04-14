@@ -2,10 +2,19 @@ const input = document.getElementById("task-input");
 const button = document.getElementById("add-btn");
 const list = document.getElementById("task-list");
 
+// =====================
+// TASKS (LOCAL STORAGE)
+// =====================
+
 // wczytaj zapisane zadania
 let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
 
-// funkcja do renderowania
+// zapis do localStorage
+function saveTasks() {
+  localStorage.setItem("tasks", JSON.stringify(tasks));
+}
+
+// render listy
 function renderTasks() {
   list.innerHTML = "";
 
@@ -46,11 +55,6 @@ function renderTasks() {
   });
 }
 
-// zapis do localStorage
-function saveTasks() {
-  localStorage.setItem("tasks", JSON.stringify(tasks));
-}
-
 // dodawanie zadania
 button.addEventListener("click", () => {
   const text = input.value;
@@ -68,24 +72,37 @@ button.addEventListener("click", () => {
   input.value = "";
 });
 
+// start listy
+renderTasks();
+
+
+// =====================
+// DARK MODE
+// =====================
+
 const toggleBtn = document.getElementById("theme-toggle");
 
-// załaduj zapisany tryb
+// ustaw UI (tekst + zapis)
+function updateThemeUI() {
+  if (document.body.classList.contains("dark")) {
+    toggleBtn.textContent = "Light Mode";
+    localStorage.setItem("theme", "dark");
+  } else {
+    toggleBtn.textContent = "Dark Mode";
+    localStorage.setItem("theme", "light");
+  }
+}
+
+// wczytaj zapisany tryb
 if (localStorage.getItem("theme") === "dark") {
   document.body.classList.add("dark");
 }
 
+// ustaw tekst przy starcie
+updateThemeUI();
+
+// przełączanie trybu
 toggleBtn.addEventListener("click", () => {
   document.body.classList.toggle("dark");
-
-  if (document.body.classList.contains("dark")) {
-    localStorage.setItem("theme", "dark");
-    toggleBtn.textContent = "Dark Mode";
-  } else {
-    localStorage.setItem("theme", "light");
-    toggleBtn.textContent = "Light Mode";
-  }
+  updateThemeUI();
 });
-
-// start
-renderTasks();
