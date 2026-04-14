@@ -82,3 +82,23 @@ body.dark button {
   color: white;
   border: 1px solid #555;
 }
+
+#theme-toggle {
+  margin-top: 20px;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  background: white;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+body.dark #theme-toggle {
+  background-color: #333;
+  color: white;
+  border: 1px solid #555;
+}
+
+body {
+  transition: 0.3s ease;
+}
