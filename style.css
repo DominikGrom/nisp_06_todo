@@ -35,3 +35,21 @@ li {
   text-decoration: line-through;
   color: gray;
 }
+
+.card {
+  background: white;
+  width: 400px;
+  margin: 50px auto;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+.title {
+  background: white;
+  display: inline-block;
+  padding: 15px 30px;
+  border-radius: 12px;
+  margin-top: 30px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
